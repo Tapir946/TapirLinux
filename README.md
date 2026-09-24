@@ -17,11 +17,30 @@ What it does:
    Existing configs are backed up to `~/.config.bak.<timestamp>`.
 5. Idempotent — safe to re-run anytime; installed packages are skipped via `--needed`.
 
+## 🌾 Save & restore your rice (`rice.sh`)
+
+Trying a new setup (e.g. **DankMaterialShell**)? Use `rice.sh` to snapshot first and restore instantly if you don't like it:
+
+```bash
+cd ~/GitHub/TapirLinux
+
+./rice.sh snapshot "before dank shell"   # save the current live config into the repo
+./rice.sh restore                         # bring the rice back (default: rice-baseline tag)
+./rice.sh status                          # show linked/copy/missing + git diff
+./rice.sh list                            # list snapshots (tags) and commits
+./rice.sh link                            # re-symlink configs into ~/.config and ~/
+```
+
+- `restore` backs up whatever is currently there to `~/.rice-backups/<timestamp>/` before overwriting, so nothing is ever lost.
+- Works whether or not the configs are symlinked.
+- The tag **`rice-baseline`** marks the known-good rice before any experiments.
+
 ## 📁 Structure
 
 ```
 TapirLinux/
 ├── install.sh            # the installer
+├── rice.sh               # snapshot / restore / relink your rice
 ├── packages/
 │   ├── pacman.txt        # explicitly installed repo packages
 │   └── aur.txt           # AUR packages (hyprmod + its Python deps)
