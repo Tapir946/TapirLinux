@@ -21,7 +21,14 @@
 set -euo pipefail
 
 REPO_URL="https://github.com/Tapir946/TapirLinux.git"
-REPO_DIR="${REPO_DIR:-$HOME/TapirLinux}"
+# When run from a local clone, default to that clone. When piped from curl,
+# there is no script path, so fall back to ~/TapirLinux.
+if [[ -n "${BASH_SOURCE[0]:-}" && -f "${BASH_SOURCE[0]}" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+else
+    SCRIPT_DIR=""
+fi
+REPO_DIR="${REPO_DIR:-${SCRIPT_DIR:-$HOME/TapirLinux}}"
 BACKUP_DIR="$HOME/.config.bak.$(date +%Y%m%d-%H%M%S)"
 
 DRY_RUN=0
