@@ -1,0 +1,32 @@
+# mako notification daemon config
+# Man page: man mako
+
+font=Noto Sans 12
+
+# Slightly see-through (~90% opaque), dark background, matching Hyprland style
+# Colors are #RRGGBBAA (alpha at the end)
+background-color=#1C1C1CE6
+text-color=#FFFFFFFF
+
+border-color=#333333FF
+border-size=2
+border-radius=10
+
+# Spacing/geometry
+margin=12
+padding=8
+width=380
+height=140
+
+# Notifications disappear after 2 seconds
+default-timeout=2000
+
+max-visible=5
+icons=1
+icon-path=/usr/share/icons/Adwaita/
+
+# Critical alerts stick around until dismissed
+[urgency=critical]
+background-color=#9C0000E6
+border-color=#FF0000FF
+default-timeout=0

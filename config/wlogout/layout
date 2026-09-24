@@ -1,0 +1,24 @@
+{
+    "label" : "poweroff",
+    "action" : "systemctl poweroff",
+    "text" : "⏻",
+    "keybind" : "p"
+}
+{
+    "label" : "restart",
+    "action" : "systemctl reboot",
+    "text" : "",
+    "keybind" : "r"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "",
+    "keybind" : "s"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "",
+    "keybind" : "l"
+}

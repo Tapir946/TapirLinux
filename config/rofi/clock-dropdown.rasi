@@ -1,0 +1,93 @@
+/* clock-dropdown.rasi
+ * Dropdown panel for the waybar clock.
+ * Flat rectangle, attached below the waybar (Hyprland layer rule:
+ * the bar's exclusive zone pushes this panel to y = bar bottom).
+ * Geometry (x-offset / width) is overridden at runtime from hyprctl.
+ * Colors match waybar: bg #1D1814, border #49382B, gold #E0B875.
+ */
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: #1D1814;
+    foreground-color: #F6F5F4;
+}
+
+window {
+    location: north;
+    anchor: north;
+    width: 980px;
+    x-offset: 150px;
+    y-offset: 0px;
+    border: 1px;
+    border-color: #49382B;
+    background-color: #1D1814;
+    text-color: #F6F5F4;
+    cursor: "default";
+}
+
+mainbox {
+    padding: 0px;
+    background-color: transparent;
+}
+
+inputbar {
+    padding: 3px 10px;
+    background-color: #1D1814;
+    text-color: #66544B;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: #E0B875;
+    padding: 0px 8px;
+}
+
+entry {
+    text-color: #F6F5F4;
+}
+
+listview {
+    columns: 1;
+    lines: 12;
+    padding: 4px;
+    spacing: 1px;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 7px 12px;
+    background-color: transparent;
+    text-color: #D8C4A8;
+    cursor: pointer;
+}
+
+/* ---- section headers (marked urgent via -u) ---- */
+element normal.urgent {
+    background-color: transparent;
+    text-color: #665447;
+    font: "JetBrainsMono Nerd Font 10";
+    text-transform: uppercase;
+    padding: 6px 12px 2px 12px;
+}
+
+element selected.urgent {
+    background-color: transparent;
+    text-color: #665447;
+    font: "JetBrainsMono Nerd Font 10";
+    text-transform: uppercase;
+    padding: 6px 12px 2px 12px;
+}
+
+/* ---- normal rows ---- */
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: #D8C4A8;
+}
+
+element selected.normal,
+element selected.active {
+    background-color: #3A2D24;
+    text-color: #E0B875;
+}

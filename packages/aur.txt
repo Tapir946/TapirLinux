@@ -1,0 +1,7 @@
+fetch-git
+hyprmod
+python-hyprland-config
+python-hyprland-monitors
+python-hyprland-schema
+python-hyprland-socket
+python-hyprland-state
